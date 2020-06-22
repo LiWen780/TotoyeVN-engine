@@ -58,7 +58,26 @@ The features for the next version of the library will be the "volume" function. 
 		
 	i) scene.getSaving(code)
 		
-		That method is used to get all the saving sessions that the player had on his or her device for your specific game. The save code used in the save method has to be used in the get method of the same game. The method will return an array with two-values objects. Each of those objects will be a session that the player has saved. The object.id is the specific ID of the session saved and the object.value is the scene saved. The programmer can then used the object.value to start the saved scene. The object.value is therefore a Scene object from the TotoyeVN engine.
+		That method is used to get all the saving sessions that the player had on his or her device for your specific game. The save code used in the save method has to be used in the get method of the same game. The method will return an array with four-values objects. Each of those objects will be a session that the player has saved. The object.id is the specific ID of the session saved and the object.value is some information about a scene object in TotoyeVN. The object.storage is all the elements that the programmer wanted to be saved for the sake of his or her game. And finally, the object.image is the source link of the background where the scene has been saved. None of them has to be used since the TotoyeVN method ".addSaving()" will set every information you'll be wanted to the current scene. The package array getting from that method can be used to select a specific saved data and give it as paramater to the scene.addSaving method.
+		
+	j) scene.gameStorage(name, element)
+		
+		If you want to save a variable element or a element during a specific choice without your game, you can use the method gameStorage. It helps adding elements that the programmer might want to use in a scene like a bar of friendship or bar of energy.
+			
+	k) scene.addSaving(savedElement)
+	
+		This .addSaving method can used to set a specific data taken from the scene.getSaving() method to the current scene the user is using.
+		An example of the codes might be:
+				var saved = scene.getSaving("mycode");
+				scene.addSaving(saved[4]); /* Load the fifth saved scene.*/
+	
+	l) scene.start()
+		
+		This method starts the loop of your scene.
+		
+	m) scene.end(event)
+		
+		Just like you can start your game, as a programmer or just a game developer you might want to end it as well. In that case, use that TotoyeVN method scene.end(). Its parameter is a method that you might want to run as an ending event like "go back to the main menu" for the example. If no parameter is given or if the parameter isn't a function, it will just close the window of the game.
 		
 # 2) Create a Background object:
 	Create an object:
@@ -117,8 +136,8 @@ The features for the next version of the library will be the "volume" function. 
 	The Panel object is a view layer used in TotoyeVN to display a perfect game. It isn't essential to the creation of a game neither is the Game object.
 	
 	Sub-methods:
-		a) panel.add()
-			This method is used to add HTML element to the panel like DIV, H1, SPAN and others. You can also add three of the TotoyeVN's objects: image, button and scene.
+		a) panel.add(element, priority)
+			This method is used to add HTML element to the panel like DIV, H1, SPAN and others. You can also add three of the TotoyeVN's objects: image, button and scene. The sub-method takes two parameters : element which is the element being added and priority which is a number where the element with the higher priority will be at the highest layer of the screen.
 		
 		b) panel.background(style)
 			The background method is used as its name sayed to add a background style to a specific panel. The style parameter can be whether a color or a image URL.
