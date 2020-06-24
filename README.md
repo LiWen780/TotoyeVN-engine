@@ -66,7 +66,7 @@ The features for the next version of the library will be the "volume" function. 
 			
 	k) scene.addSaving(savedElement)
 	
-		This .addSaving method can used to set a specific data taken from the scene.getSaving() method to the current scene the user is using.
+		This .addSaving method can used to set a specific set of data return by the scene.getSaving() method to the current scene the user is using.
 		An example of the codes might be:
 				var saved = scene.getSaving("mycode");
 				scene.addSaving(saved[4]); /* Load the fifth saved scene.*/
@@ -192,3 +192,7 @@ The features for the next version of the library will be the "volume" function. 
 			
 		h) button.eventListener(eventName, method)
 			This method operates just like the addEventListener method. The eventName parameter can be "click", "over" or others and the method parameter is the function you want to run when the event occurs.
+			
+		i) button.check(other)
+		
+			This method can be used to check if a button HTML element is the same as the current button. That method can be very important in some situations during programming. It can be compared to the array method indexOf() in case of an array of TVN button object.
