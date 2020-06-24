@@ -79,6 +79,10 @@ The features for the next version of the library will be the "volume" function. 
 		
 		Just like you can start your game, as a programmer or just a game developer you might want to end it as well. In that case, use that TotoyeVN method scene.end(). Its parameter is a method that you might want to run as an ending event like "go back to the main menu" for the example. If no parameter is given or if the parameter isn't a function, it will just close the window of the game.
 		
+	n) scene.volume(magnitude)
+		
+		Set the volume to the current soundtrack of the scene by using this method. The parameter "magnitude" is the percentage of the volume going from 0 to 100. Magnitude(Data type =>number)
+		
 # 2) Create a Background object:
 	Create an object:
 		var background = new TotoyeVN.Background("yourBackground.png");
