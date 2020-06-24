@@ -866,7 +866,7 @@
 		{
 			if((method) && (typeof(method) == "function"))
 			{
-				ENDING = {func: method(), max: this.Nodes.length};
+				ENDING = {func: method, max: this.Nodes.length};
 			}
 			else
 			{
