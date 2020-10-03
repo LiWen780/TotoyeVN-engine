@@ -5,6 +5,10 @@
 ## TotoyeVN-engine
 TotoyeVN or Totoye Visual Novel is a javascript game library built to allow its users to create visual novels or any type of games related. It is entirely JavaScript with no other engine integrated. The users have access to nine(9) main methods or functions where five(5) of them can be used only to create a pretty good visual novel with sounds, background, characters, and dialogues. It creates the next scene patterns and the dissolve effect for both background and character's images.
 
+Install TotoyeVN-engine using [npm](https://www.npmjs.com/package/totoyevn-engine):
+
+	npm i totoyevn-engine
+
 The current version of the library is 1.0 . It'll continue to have upgrades.
 
 # 1) The scene of the game:
