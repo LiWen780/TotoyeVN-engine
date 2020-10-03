@@ -1,14 +1,11 @@
-# TotoyeVN-engine
-TotoyeVN is a Visual Novel game engine made with JavaScript.
+![TotoyeVN.js](https://raw.github.com/LiWen780/TotoyeVN-engine/master/TVN_logo.png)
 
-#Totoye VN
-Totoye VN or Totoye Visual Novel is a javascript game library that I(Li Wen) created. It allows programmers or not to create visual novel using the library. It is entirely JavaScript with no other engine integrated. The programmer or user has access to nine(9) main methods or functions where five(5) of them can be used only to create a pretty good visual novel with sounds, background, characters, and dialogues. It creates the next scene patterns and the dissolve effect for both background and character's images.
+[http://manhai-pictures.fun/Creations.php](http://manhai-pictures.fun/Creations.php)
 
-The current version of the library is 1.0 . I'll continue to upgrade it.
+## TotoyeVN-engine
+TotoyeVN or Totoye Visual Novel is a javascript game library built to allow its users to create visual novels or any type of games related. It is entirely JavaScript with no other engine integrated. The users have access to nine(9) main methods or functions where five(5) of them can be used only to create a pretty good visual novel with sounds, background, characters, and dialogues. It creates the next scene patterns and the dissolve effect for both background and character's images.
 
-The features for the next version of the library will be the "volume" function. The possibility to add video as the background and more features for the creation of a visual novel.
-
-#Main methods
+The current version of the library is 1.0 . It'll continue to have upgrades.
 
 # 1) The scene of the game:
 	create an object:  
