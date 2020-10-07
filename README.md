@@ -9,7 +9,7 @@ Install TotoyeVN-engine using [npm](https://www.npmjs.com/package/totoyevn-engin
 
 	npm i totoyevn-engine
 
-The current version of the library is 1.0 . It'll continue to have upgrades.
+The current version of the library is 1.0.1 . It'll continue to have upgrades.
 
 # 1) The scene of the game:
 	create an object:  
