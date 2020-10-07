@@ -4,13 +4,14 @@
 	(global = global || self, factory(global.TotoyeVN = {}));
 }(this, (function (exports) { 'use strict';
 
-	var dpi = window.devicePixelRatio;
 	var CURRENT, WINNER, MAX, coordsArray;
 	
 	const requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
 								  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 								  
 	const cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+			     
+	const dpi = window.devicePixelRatio;
 								  
 	//-----------------------AUDIO-------------------------------------------------
 	function Audio(url){
