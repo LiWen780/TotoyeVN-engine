@@ -6,9 +6,10 @@ The version 2.0 is a great upgrade of the library which makes your game run fast
 
 Install TotoyeVN-engine using [npm](https://www.npmjs.com/package/totoyevn-engine):
 
-	`npm i totoyevn-engine`
+	npm i totoyevn-engine
 									
-									#TotoyeVN 2.0 functions
+#									TotoyeVN 2.0 functions
+
 #	1) Audio
 		- Syntax : **new TotoyeVN.Audio(url)**
 		
@@ -227,7 +228,7 @@ Install TotoyeVN-engine using [npm](https://www.npmjs.com/package/totoyevn-engin
 		
 		
 		
-##	Example of a random Visual Novel made with TotoyeVN 2.0
+					##Example of a Visual Novel made with TotoyeVN 2.0
 	```
 					
 	var Max = new TotoyeVN.Character("Zoey", "red");
