@@ -1,203 +1,324 @@
 ![TotoyeVN.js](https://raw.github.com/LiWen780/TotoyeVN-engine/master/TVN_logo.png)
-
-[http://manhai-pictures.fun/Creations.php](http://manhai-pictures.fun/Creations.php)
-
-## TotoyeVN-engine
-TotoyeVN or Totoye Visual Novel is a javascript game library built to allow its users to create visual novels or any type of games related. It is entirely JavaScript with no other engine integrated. The users have access to nine(9) main methods or functions where five(5) of them can be used only to create a pretty good visual novel with sounds, background, characters, and dialogues. It creates the next scene patterns and the dissolve effect for both background and character's images.
+#TotoyeVN 2.0
+TotoyeVN 2.0 is now out and can be find on npm, itch.io and on our website liwenstudios.fun.
+TotoyeVN is a javascript game engine library used to create visual novel as web game. But, there's another project called TotoyeVN Studio  which is a software created by the same developer that uses the TotoyeVN library to create visual novels as both HTML5 and Java games.
+The version 2.0 is a great upgrade of the library which makes your game run faster than before and with syntax easier to understand. 
 
 Install TotoyeVN-engine using [npm](https://www.npmjs.com/package/totoyevn-engine):
 
-	npm i totoyevn-engine
+	`npm i totoyevn-engine`
+									
+									#TotoyeVN 2.0 functions
+#	1) Audio
+		- Syntax : **new TotoyeVN.Audio(url)**
+		
+		The url parameter is a String which plays the role of the link of the audio file in your system file. You can also declare the Audio object as **new TotoyeVN.Audio()** and uses the object function **.src(url)** to declare the audio file at the end.
 
-The current version of the library is 1.0.1 . It'll continue to have upgrades.
-
-# 1) The scene of the game:
-	create an object:  
-		var scene = new TotoyeVN.Scene();
-	This line automatically creates a black scene for your game. Now, you'll just have to add components to it.
+#	2) Book
+		- Syntax : **new TotoyeVN.Book()**
+		
+		This syntax create a Book method which replaced the Scene method in version 1.0 and improved it. Just like a book, you can create chapters in the book and add pages to it. Sounds more like a visual novel, right?
+		
+		a) **.add(character, text)**
+		
+		This function is used in TotoyeVN engine, to set a character and his or her initial dialog for the scene. The character parameter can be a TotoyeVN Character object from the Character class or just a String element which is the name of the character. The text element is a string element which is the dialog(sentences or words) from the character.
+		
+		b) **.addChoice(array)**
+		
+		This function is used to set a choice setting in your game. The parameter is an special array which is labeled like that: **[{menu: "my choice 1 is", jump: "chapter_name"},{menu: "My choice 2 is", jump: "chapter_name2},...]** It makes it easier than the method for choices in version 1.0 . However, the method allows you to put a total of 4 choices to make your game more simplified.
+		
+		c) **.background(image_url, effect)**
+		
+		The method is to set a background for your scene, like a school or beach background image. The **image_url** parameter is a String link to the image you want to set as background and the effect parameter is a String element that can be whether "normal" or "dissolve" depending on how you want the background image to appear when the scene is switched.
+		
+		d) **.endChapter()**
+		
+		This method is the opposite of a TotoyeVN 2.0 method called **startChapter**. This method is called only when you want to end a chapter whether to begin a new one in the book object or just when you're done with the current one. Further information will be given below.
+		
+		e) **.show(character_url, effect)**
+		
+		The show function is used as its name said to show an character whether with a "normal" or "dissolve" effect. The character's image link is given as the first parameter of the function.
+		
+		f) **.hide()**
+		
+		Sometimes, we don't want to display the current character anymore in our next scene. So in that case, instead of displaying another one, we want that the scene don't show any character. That's why the .hide function exists for. This function hide the current character without any parameter given.
+		
+		g) **.play(audio)**
+		
+		This method take the Audio object as a parameter or the url of a audio file to play in our current scene.
+		
+		h) **.pause()**
+		
+		This method is used to pause the current audio playing in the scene.
+		
+		i) **.stop()**
+		
+		This method is used to stop the current audio playing in the scene.
+		
+		j) **.volume(degree)**
+		
+		This method is used to set the volume degree of the current audio playing in the scene. The degree value is set between 0 to 100 and must be a number.
+		
+		k) **.startChapter(name)**
+		
+		This method is used to start a new chapter in your book for the visual novel. It takes a String parameter which is the name of your chapter that might be used to jump when using a choice setting( see .addChoice function)
+		
+#	3) button
+		- Syntax : **new TotoyeVN.button(title)**
+		
+		The button method was in the version 1.0, but has been improved in the version 2.0. This method is better used for the Screen object of the library and creates a button for the developer. The "title" is a String parameter that will appear on the button when created. The "title" parameter is not necessary.
+		
+		a) **.setBackground(image_url)**
+		
+		If you want to put an image as your button background in order for it to appear different from a conventional button, the setBackground method can be used by just passing the image link as a String parameter to the method.
+		
+		b) **.setFont(color, size, style)**
+		
+		As its name said, this method is used to set a font to the button. All three parameters are String element. Color can be word(like red, blue, yellow), rbga or hexadecimal(#FF0000). And style can be "bold", "normal", or "italic" for the title.
+		
+		c) **.setTitle(t)**
+		
+		Like said for the button object syntax, the title parameter wasn't necessary since it can be given by using this method.
+		
+		d) **.setBorder(width, color, type)**
+		
+		This method is used to manipulate the border of the button. It takes three parameters: width which is the number of pixels defining the width of the border, color which is the color of the border, and finally the type which can be "dotted", "dashed", "solid", "double", "groove", "ridge", "none".
+		
+		e) **.roundedBorder(i)**
+		
+		This method is used to set the radius of the button's border. The parameter **i** is a number between 0 and 100.
+		
+		f) **.setWidth(degree)**
+		
+		This method is used to give a width to the button element. The degree parameter is a number element between 0 to 100.
+		
+		g) **.setHeight(degree)**
+		
+		This method is used to give a height to the button element. The degree parameter is a number element between 0 to 100.
+		
+		h) **.alignX(ans)**
+		
+		Used to align the button on the x-axis of your screen. The parameter **ans** can be whether a String or a Number. As a number, it is considered as a percentage depending on the width of your screen. And as a String, it can whether be "left", "right", or "center".
+		
+		i) **.alignY(ans)**
+		
+		The method is used to align the button on the y-axis of your screen. The parameter **ans** can be a String or a Number. As a number, it is considered as a percentage depending on the height of your screen. And as a String, it can whether be "top", "bottom", or "center".
+		
+		j) **.setX(a)**
+		
+		This method is used to place the button on the x-axis. It is similar to the alignX method when given only a Number as parameter. The **a** parameter is a Number defines as a percentage depending on the width of the screen.
+		
+		k) **.setY(b)**
+		
+		This method is used to place the button on the y-axis. It is similar to the alignY method when given only a Number as parameter. The **b** parameter is a Number defines as a percentage depending on the height of the screen.
+		
+		l) **.eventListener(event, method)**
+		
+		For the ones familiar with the JavaScript programming language, this method is similar to the **addEventListener**. It is used to set an event to the button. The event parameter is a String that can be "click", "mouseover", "mousedown", "mouseup" or "mouseout" and the method parameter is the function to run when the event occurs. 
+		
+#	4) Character
+		- Syntax : **new TotoyeVN.Character(name, color)**
+		
+		The Character method is one of the simplest methods of the TotoyeVN 2.0 since it doesn't have any sub-methods. Both parameters are String elements: the name of the character, and the color you define for him(will be set when the name appears in the box name).
+		
+#	5) gameIcon
+		- Syntax : **new TotoyeVN.gameIcon(icon)**
+		
+		This method is the second simplest method of the TotoyeVN 2.0. It doesn't have sub-method and is still the same as the gameIcon from version 1.0. It takes one parameter(String) which is the link to the image you want for your web game page icon. This method will only work for HTML5 games.
+		
+#	6) image
+		- Syntax : **new TotoyeVN.image(src)**
+		
+		The method is used to create an image element, specially used in the Screen object. The parameter is not necessary, but is the link(String) to the image file.
+		
+		a) **.src(link)**
+		
+		If no parameter has been given to the object or if you simply want to change the source file, the src method can be used for that.
+		
+		b) **.setWidth(w)**
+		
+		Used to set the width of the image in the scene by giving a parameter(Number) **w**, defined as a percentage of the width of the screen.
+		
+		c) **.setHeight(h)**
+		
+		Used to set the height of the image in the scene by giving a parameter(Number) **h**, defined as a percentage of the height of the screen.
+		
+		d) **.alignX(x)**
+		
+		Used to align the image on the x-axis of your screen. The parameter **x** can be whether a String or a Number. As a number, it is considered as a percentage depending on the width of your screen. And as a String, it can whether be "left", "right", or "center".
+		
+		e) **.alignY(y)**
+		
+		The method is used to align the image on the y-axis of your screen. The parameter **y** can be a String or a Number. As a number, it is considered as a percentage depending on the height of your screen. And as a String, it can whether be "top", "bottom", or "center".
+		
+		f) **.setX(a)**
+		
+		This method is used to place the image on the x-axis. It is similar to the alignX method when given only a Number as parameter. The **a** parameter is a Number defines as a percentage depending on the width of the screen.
+		
+		g) **.setY(b)**
+		
+		This method is used to place the image on the y-axis. It is similar to the alignY method when given only a Number as parameter. The **b** parameter is a Number defines as a percentage depending on the height of the screen.
+		
+#	7) Reader
+		- Syntax : **new TotoyeVN.Reader(book_object)**
+		
+		This method is a new method on TotoyeVN 2.0 which will helps to read the object **Book** when created. It takes one parameter is a TotoyeVN.Book object with all chapters in it.
+		
+		a) **.startAt(chapter_name)**
+		
+		The method is used to determine at which chapter of the book the reader will start reading. Thanks to that function, when creating your chapter for the Book object, you don't need to worry about which chapter to create first. If you don't tell the Reader where to start, you'll never be able to read the book :D.
+		
+		b) **.next()**
+		
+		This method is used to change page in your book. The Reader usually starts at the first page of the chapter defined. 
+		
+		c) **.read()**
+		
+		This method starts the loop to read the book given to the Reader by parameter.
+		
+		d) **.roundedNameBox(degree)**
+		
+		Used to set a border radius degree to the box containg the name on the scene. The **degree** parameter is set between 0 and 10.
+		
+		e) **.roundedDialogBox(degree)**
+		
+		Used to set a border radius degree to the box containg the dialog on the scene. The **degree** parameter is set between 0 and 10.
+		
+		f) **.setTextColor(r,g,b)**
+		
+		Used to set the color of the text for the dialog box. The method only takes three parameters(all Number type) which are RGB parameters for the color.
+		
+		g) **.setBoxColor(r,g,b)**
+		
+		Used to set the color of the dialog box and the name box. The method only takes three parameters(all Number type) which are RGB parameters for the color.
+		
+		h) **.saveJSON()**
+		
+		This method is used to save all the important information of the current scene's state and return it as a JSON data.
+		
+		i) **.loadJSON(json)**
+		
+		The method can be used to update the current scene by loading as parameter the JSON data got from the .saveJSON method. Both methods can than be used to add saving settings to your game.
+		
+#	8) Screen
+		- Syntax : **new TotoyeVN.Screen()**
+		
+		The Screen object is one of the most important method of the TotoyeVN 2.0 after the Book and Reader methods. It's a improved version of both Panel and Game methods from version 1.0. It is used to manipulate the different panels of your game like Main menu, game space, credit panel, etc. 
+		
+		a) **.createLayer(name)**
+		
+		Used to create a layer in your screen by giving it a name(dataType: String) as parameter. Consider the layer as a page where one can contains the main menu, one the game, one the information about the game, and so on.
+		
+		b) **.addToLayer(layer_name, object)**
+		
+		As it was said, a layer is like a page, in other words, you can also put thing on it to appear on the screen. The layer_name parameter(String) is used to determine in which layer, the second parameter(Object) or the object must be added. The object can be an image object, a button object, a Book object || an Audio object or a reader object. If a Book is set as the parameter of a Reader, only the Reader object has to be added to the Screen object since the Reader already has the Book object within it.
+		
+		c) **.changeView(layer_name)**
+		
+		The first layer to appear on the screen is the first one created. However, you can change which layer to display by using this method which takes the layer_name(String) as parameter.
+		
+		d) **.open()**
+		
+		This method is used to start the layer view of the Screen object. Without it, no layer will be displayed.
+		
+		e) **.closeWindow()**
+		
+		This method can be used to close the entire web page of the game. Can only be used for HTML5 games(or web games).
+		
+		
+		
+					##Example of a Visual Novel made with TotoyeVN 2.0
+	```
+					
+	var Max = new TotoyeVN.Character("Zoey", "red");
+	var script = new TotoyeVN.Book();
+	var back = new TotoyeVN.Audio("audio.mp3");
+			
+	//-----------------------------------------------HOMECOMING-chapter
+	script.startChapter("Homecoming");
+			
+		script.add(Max, "Hi everyone");
+			script.background("outschool.png");
+			script.show("Vanessa.png", "dissolve");
+			
+		script.add(Max, "How are you?");
+		
+		script.add(Max, "How was the day?");
+			script.background("outschool.png", "dissolve");
+			script.hide("Vanessa.png");
+			
+		script.add(Max, "Was it good?"); 
+			script.show("Vanessa.png","dissolve");
+			
+		script.add(Max, "I think I'll go in class now.");
+			script.background("outschool.png", "dissolve");
+			
+		script.addChoice([{menu: "Where are you from?", jump: "USA"},{menu: "What town are you from?", jump: "Tokyo"},{menu: "How old are you?", jump: "Age"}, {menu: "What's your favorite color?", jump: "Yellow"}]);
+			
+	script.endChapter();
+			
+	//------------------------------------------------------USA-chapter
+	script.startChapter("USA");
 	
-	Sub-methods of the scene:
-	a)	scene.add((character, text, background, effect)
+		script.add(Max, "Ow, you're from USA. That's great.");
+		
+		script.add(Max, "You must had a pretty good childhood.");
+			script.show("Vanessa.png", "dissolve");
+			script.background("outschool.png");
+			
+	script.endChapter();
+			
+	//-------------------------------------------------------Tokyo
+	script.startChapter("Tokyo");
 	
-		- The character is another object created from a class of the TotoyeVN engine called "Character".
-		- The text is just a string element which contains the text that the character will be saying.
-		- The background is an object created from the class "Background" of the Totoye VN engine.
-		- And finally, the effect parameter is a string parameter that can be null or "dissolve". The programmer will state whether the character appears with a normal effect or a dissolve one.
-		
-		If you want to set a black screen for your transition. The add method becomes "scene.add(type, withsound, text)":
-			- The type parameter will always have the value "blackscreen" in that case.
-			- The withsound parameter is a boolean by which you can set the value true or false if you want to keep the audio during the black scene or not.
-			- And finally, the text is just if you want to set a title in your black screen.
-		
-	b)	scene.addChoice(choice1, choice2, methode1, methode2)
-		
-		Do you want to add a choice in your visual novel? This method is the perfect one for that. The choice1 and choice2 parameters are two string elements that contains the texts stating the choices available for the player. The method1 is a function element that will run if the player decides to choose the first choice. And same thing for method2 and choice2. Each method takes one parameter that will play the role of the scene object inside the function.
-		
-	c)	scene.addSound(sound)
-		
-		Do you want to audio music in the background? addSound is the perfect method built inside TotoyeVN for that purpose. It takes only one parameter, a string stating the URL of the programmer audio file(mp3 or else) or a Audio object created from the "Audio" class of Totoye VN.
-		
-	d)	scene.bgDissolveEffect()
-		
-		This function is a method from the scene object that creates a dissolve effect for a background. It can be used when you're changing the background of your scene. It doesn't take any parameter(s), it only takes effect on the last background you added following your codes.
-		
-	e)	scene.setTextFont(font)
-		
-		You can decide to change the font of the text if you don't like the default one. The font character is a string element with the size of the font and the font type like "16px Arial".
-		
-	f)	scene.setTextColor(color)
+			script.add(Max, "No kidding! I'm from Tokyo too.");
+			
+			script.add(Max, "That's great. We're from the same town then!");
+			
+	script.endChapter();
+			
+	//-------------------------------------------------------Age
+	script.startChapter("Age");
 	
-		You can change the default color of the text by giving it your own like red or #FF0000
-
-	g)	scene.clickSound(url)
+		script.add(Max, "19 years old!? Wow, you're pretty a big guy.");
+		
+		script.add(Max, "I'm 16, so...");
+		
+	script.endChapter();
+			
+	//-------------------------------------------------------Yellow
+	script.startChapter("Yellow");
 	
-		If you want to give a sound each time the player clicks the scene to change the dialogue, use this method by giving it the URL of your audio file as a parameter or an Audio object(TotoyeVN).
+		script.add(Max, "You like Yellow?");
 		
-	h) scene.save(code)
+		script.add(Max, "That's good. I mean, it's a pretty color.");
 		
-		As a programmer if you want to save your game within the localStorage of the user, use that save method by giving it a code that will identify your game each time the player will save a different session of the game.
-		
-	i) scene.getSaving(code)
-		
-		That method is used to get all the saving sessions that the player had on his or her device for your specific game. The save code used in the save method has to be used in the get method of the same game. The method will return an array with four-values objects. Each of those objects will be a session that the player has saved. The object.id is the specific ID of the session saved and the object.value is some information about a scene object in TotoyeVN. The object.storage is all the elements that the programmer wanted to be saved for the sake of his or her game. And finally, the object.image is the source link of the background where the scene has been saved. None of them has to be used since the TotoyeVN method ".addSaving()" will set every information you'll be wanted to the current scene. The package array getting from that method can be used to select a specific saved data and give it as paramater to the scene.addSaving method.
-		
-	j) scene.gameStorage(name, element)
-		
-		If you want to save a variable element or a element during a specific choice without your game, you can use the method gameStorage. It helps adding elements that the programmer might want to use in a scene like a bar of friendship or bar of energy.
-			
-	k) scene.addSaving(savedElement)
+	script.endChapter();
 	
-		This .addSaving method can used to set a specific set of data return by the scene.getSaving() method to the current scene the user is using.
-		An example of the codes might be:
-				var saved = scene.getSaving("mycode");
-				scene.addSaving(saved[4]); /* Load the fifth saved scene.*/
+	//Create the Reader object
+			
+	var reader = new TotoyeVN.Reader(script);
+			
+		reader.startAt("Homecoming");
+		reader.read();
+		reader.setTextColor(245,275,124);
+		reader.setBoxColor(0,0,0);
+		
+	//Create the Screen object
 	
-	l) scene.start()
-		
-		This method starts the loop of your scene.
-		
-	m) scene.end(event)
-		
-		Just like you can start your game, as a programmer or just a game developer you might want to end it as well. In that case, use that TotoyeVN method scene.end(). Its parameter is a method that you might want to run as an ending event like "go back to the main menu" for the example. If no parameter is given or if the parameter isn't a function, it will just close the window of the game.
-		
-	n) scene.volume(magnitude)
-		
-		Set the volume to the current soundtrack of the scene by using this method. The parameter "magnitude" is the percentage of the volume going from 0 to 100. Magnitude(Data type =>number)
-		
-# 2) Create a Background object:
-	Create an object:
-		var background = new TotoyeVN.Background("yourBackground.png");
-		
-	A Background object is a TotoyeVN object that allows you to pass any background properties to another method by just using one element created for that purpose. The method or object takes one parameter which is the URL of the image used for the specified background. The effect can be changed by using the bgDissolveEffect() method inside the scene object.
+	var screen = new TotoyeVN.Screen();
 	
-# 3) Create a Character object:
-	Create an object:
-		var Lucy = new TotoyeVN.Character("Lucy", "Lucy.png", "#FF0000");
-		
-	This method allows the programmer to create a Character object which can be used in the same way as the Background object, as a single parameter which has the properties for a character. The object takes three(3) parameters:
+		screen.createLayer("game");
+		screen.addToLayer("game", reader);
+		screen.open();
 	
-	- The name of the character.
-	- The URL of the character image used in the scene. That parameter can be replaced by the null element if the programmer wants the character to be invisible or if he or she is the main character which in most VN doesn't appear in the scene.
-	- The last parameter is the color specific to the character. The boxes with the name and the text of the character will take that color whenever the character is talking in the scene.
+	//Create a JavaScript event to go to the next page using the right arrow of my computer
 	
-# 4) Create an Audio object:
-	Create the object:
-		var audio = new TotoyeVN.Audio("myaudio.mp3");
-		
-	This method takes one parameter which is the URL of the audio element.
-
-# 5) Set an icon to the game:
-	Create the icon:
-		new TotoyeVN.gameIcon("theicon.png")
+	document.addEventListener("keydown", function(e){
+		if(e.keyCode == 39)
+		{
+			reader.next();
+		}
+	});
+	```
 	
-	This is just a "link element" icon for the scene web page. The method takes one parameter whic is the URL of the image file. 
-
-# 6) Create a game object:
-	Create the object:
-		new TotoyeVN.Game();
-	
-	This object is used if you want to create a perfect visual novel with main menu and other panels. The Game object will in that case, be the parent of all the other object of the visual novel.
-	
-	Sub-methods:
-		a) game.add(panel)
-			This method is used to add panel objects to the game. The panels will contains the main menu and other panels that the programmer would like to put inside the game like Gallery and bonus page.
-		
-		b) game.view(panel)
-			Automatically, when a panel is added to the Game object, it is invisible to the view to give a certain illusion just like using the pages of a book. The view method determines which panel will be visible to the user. If you use the view method five times on five different panels, it will only display the last one.
-			
-		c) game.next()
-			The next method is a sub-method of the Game object that display the next panel in the list depending on how all panels were added.
-		
-		d) game.previous()
-			The previous method is a sub-method of the Game object that display the previous panel in the list depending on how the panels were added to the Game object.
-		
-		e) game.closeWindow()
-			This method can be used to close the current window of the game.
-			
-# 7) Create a panel obejct:
-	Create the object:
-		new TotoyeVN.Panel()
-	
-	The Panel object is a view layer used in TotoyeVN to display a perfect game. It isn't essential to the creation of a game neither is the Game object.
-	
-	Sub-methods:
-		a) panel.add(element, priority)
-			This method is used to add HTML element to the panel like DIV, H1, SPAN and others. You can also add three of the TotoyeVN's objects: image, button and scene. The sub-method takes two parameters : element which is the element being added and priority which is a number where the element with the higher priority will be at the highest layer of the screen.
-		
-		b) panel.background(style)
-			The background method is used as its name sayed to add a background style to a specific panel. The style parameter can be whether a color or a image URL.
-			
-# 8) Create an Image object:
-	Create the object:
-		new TotoyeVN.image(source)
-	You can choose to create your own image element using the conventional way in JavaScript or you can use the image object from the TotoyeVN engine. The source parameter is the URL of your image.
-	
-	Sub-methods of the object:
-		a) image.src(s)
-			You may have create your object without a parameter. In that case, you can give the image URL to your image object later using this method.
-			
-		b) image.width(percent)
-			The width method is used to set the width dimension of your image. It takes one parameter which is the percentage comparing to the width of the panel.
-			
-		c) image.height(percent)
-			The height method is used to set the height dimension of your image. It takes one parameter which is the percentage comparing to the height of the panel.
-			
-		d) image.alignX(par)
-			The alignX method can be used to set the position of the image in the x-axis. The parameter "par" can be whether a number between 0 to 100(percentage) or a string to set the alignment to "left", "center", or "right" in the x-direction.
-			
-		e) image.alignY(par)
-			The alignY method can be used to set the position of the image in the y-axis. The parameter "par" can be whether a number between 0 to 100(percentage) or a string to set the alignment to "left", "center", or "right" in the y-direction.
-			
-# 9) Create a button object:
-	Create the object:
-		new TotoyeVN.button(text)
-	You can choose to create your own button element using the conventional way in JavaScript or you can use the button object from the TotoyeVN engine. The text parameter is the text which will be displayed on the button.
-	
-	Sub-methods of the object:
-		a) button.title(s)
-			You may have create your buttonn object without a parameter. In that case, you can set your text later using this method.
-			
-		b) button.width(percent)
-			The width method is used to set the width dimension of your button. It takes one parameter which is the percentage comparing to the width of the panel.
-			
-		c) button.height(percent)
-			The height method is used to set the height dimension of your button. It takes one parameter which is the percentage comparing to the height of the panel.
-			
-		d) button.alignX(par)
-			The alignX method can be used to set the position of the button in the x-axis. The parameter "par" can be whether a number between 0 to 100(percentage) or a string to set the alignment to "left", "center", or "right" in the x-direction.
-			
-		e) button.alignY(par)
-			The alignY method can be used to set the position of the button in the y-axis. The parameter "par" can be whether a number between 0 to 100(percentage) or a string to set the alignment to "left", "center", or "right" in the y-direction.
-			
-		f) button.background(style)
-			The background method is used as its name stated, to add a background style to a button. The style parameter can be whether a color or a image URL.
-			
-		g) button.fontColor(c)
-			The fontColor method is used to set a color to the text giving to the button object.
-			
-		h) button.eventListener(eventName, method)
-			This method operates just like the addEventListener method. The eventName parameter can be "click", "over" or others and the method parameter is the function you want to run when the event occurs.
-			
-		i) button.check(other)
-		
-			This method can be used to check if a button HTML element is the same as the current button. That method can be very important in some situations during programming. It can be compared to the array method indexOf() in case of an array of TVN button object.
