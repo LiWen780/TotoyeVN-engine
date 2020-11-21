@@ -230,7 +230,7 @@ Install TotoyeVN-engine using [npm](https://www.npmjs.com/package/totoyevn-engin
 		
 		
 		
-					##Example of a Visual Novel made with TotoyeVN 2.0
+##				Example of a Visual Novel made with TotoyeVN 2.0
 	```
 					
 	var Max = new TotoyeVN.Character("Zoey", "red");
