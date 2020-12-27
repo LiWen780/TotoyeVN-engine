@@ -1,4 +1,5 @@
-![TotoyeVN.js](https://raw.github.com/LiWen780/TotoyeVN-engine/master/TVN_logo.png)
+<img align="left" src="TVN_logo.png" width="100px"/>
+<h1>Flax Engine</h1>
 
 # TotoyeVN 2.0
 
