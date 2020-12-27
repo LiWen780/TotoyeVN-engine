@@ -19,9 +19,13 @@ This repository contains full source code of the engine. As it is a open-source 
 ![Screenshot2](Development/images/tvn_screenshot2.PNG "Screenshot2")
 ![Screenshot3](Development/images/tvn_screenshot2.PNG "Screenshot3")
 
-Install TotoyeVN-engine using [npm](https://www.npmjs.com/package/totoyevn-engine):
+# Getting started
 
-	npm i totoyevn-engine
-									
+After GitHub, the TotoyeVN engine is available on both itch.io and npm.
 
+* Install TotoyeVN-engine using [itch.io](https://li-wen-studios.itch.io/totoye-vn)
+
+* Install TotoyeVN-engine using [npm](https://www.npmjs.com/package/totoyevn-engine):
+
+		npm i totoyevn-engine
 	
