@@ -14,6 +14,7 @@ This repository contains full source code of the engine. As it is a open-source 
 * [Documentation](http://liwenstudios.fun/TotoyeVN.php)
 
 # Screenshots
+The Background Images used in the Demo are from Noraneko Games.
 
 ![Screenshot1](Development/images/tvn_screenshot1.PNG "Screenshot1")
 ![Screenshot2](Development/images/tvn_screenshot2.PNG "Screenshot2")
