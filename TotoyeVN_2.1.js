@@ -1983,13 +1983,13 @@
 	//------------------------------------------------------------------
 	
 	exports.Audio = Audio;
-	exports.Book = Book; //Replace and improved Scene        //CHECK
-	exports.button = button; //-------Improved //CHECK
-	exports.Character = Character;//------Improved           //CHECK
-	exports.image = image; //----------Improved              //CHECK
-	exports.Reader = Reader; //New - Help to read the book   //CHECK
-	exports.Screen = Screen; // Replace both Panel and Game  //CHECK
-	//exports.TreeNode = TreeNode; //----New BUT NOT READY
+	exports.Book = Book;
+	exports.button = button;
+	exports.Character = Character;
+	exports.Key = Key;
+	exports.image = image;
+	exports.Reader = Reader;
+	exports.Screen = Screen;
 	
 
 Object.defineProperty(exports, '__esModule', { value: true });
