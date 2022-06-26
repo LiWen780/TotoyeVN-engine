@@ -1,6 +1,6 @@
 //--------------------------------------------LI WEN STUDIOS
-//--------------------------------------------TotoyeVN 2.0 made by LI WEN
-//-----------------------------------------------November 20th, 2020
+//--------------------------------------------TotoyeVN 2.1.1 made by LI WEN
+//-----------------------------------------------June 26th, 2022
 
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
@@ -1911,69 +1911,7 @@
 		
 	});
 	
-	//-----------------------------------------------------TREENODE
-	
-	function TreeNode(value, genre)
-	{
-		//This is a binary tree node
-		this.type = "treenode";
-		this.value = value || "";
-		this.genre = genre;
-		
-		if(genre.toLowerCase() == "scene")
-		{
-			this.child = null;
-		}
-		else if(genre.toLowerCase() == "menu")
-		{
-			this.child = [];
-		}
-	}
-	
-	Object.assign(TreeNode.prototype, {
-		
-		add: function(other)
-		{
-			if(this.genre.toLowerCase() == "menu")
-			{
-				this.child.push(other);
-			}
-			else if(this.genre.toLowerCase() == "scene")
-			{
-				this.child = other;
-			}
-		},
-		
-		getTree: function(level)
-		{
-			var tab = "";
-			var string = this.value+"\n";
-			
-			for(var i = 0; i < level; i++)
-			{
-				tab += "\t";
-			}
-			for(var j= 0; j < this.child.length; j++)
-			{
-				string += tab+""+this.child[j].getTree(level+1);
-			}
-			return string;
-		},
-		
-		followPath: function(array)
-		{
-			var code = "this.child[array[0]]";
-			
-			for(var b = 1; b < array.length; b++)
-			{
-				code += ".child["+array[b]+"]";
-			}
-			
-			var IQ = eval(code);
-			return IQ.value;
-		}
-	});
-	
+	//---------------------------------------------------------------------
 	function isImageURL(url) 
 	{
 		return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
