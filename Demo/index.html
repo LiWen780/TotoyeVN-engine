@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<script src='../TotoyeVN_2.2.js'></script>
+	</head> 
+	<body>
+		<script type="text/javascript">
+			
+			var screen = new TotoyeVN.Screen();
+			
+			var start = new TotoyeVN.button("Start");
+			var continu = new TotoyeVN.button("Continue");
+			var exit = new TotoyeVN.button("Exit");
+			
+			var pane = new TotoyeVN.Panel(25,25);
+			pane.setBackground(255,255,0,1);
+			pane.setBorder("red", 2);
+			pane.setWidth(50);
+			pane.setHeight(50);
+			
+			var img = new TotoyeVN.image("images/Naia_suprised.png");
+			
+			//------------------------PROGRESSBAR
+			var pr = new TotoyeVN.Progressbar(null , 20);
+			//pr.setBackgroundColor(0,0,255);
+			//pr.setForegroundColor(255,0,0);
+			pr.setFontColor(255,0,0);
+			pr.setLabel("Loading");
+			pr.setPosition(25, 25);
+			
+			//TIMER------------------------------
+			var lit = 20
+			
+			let timer = new TotoyeVN.Timer(1, false, ()=>{
+				//pane.removeBorder();
+				console.log("The timer has ended.");
+				lit += 20;
+				if(lit > 100)
+				{
+					pr.setMax(200);
+					label.uppercase(false);
+					label.setSize(50, null);
+					list.remove(2);
+					timer.stop()
+					//get();
+					console.log(`text=> ${input.text()}, readOnly: ${input.readOnly()}`);
+				}
+				else if(lit <= 100)
+				{
+					pr.setValue(lit);
+				}
+			});
+			
+			//------------------label
+			var label = new TotoyeVN.Label();
+			label.setText("I'm Vanessa.");
+			label.setColor(255,255,255);
+			label.setFontSize(3);
+			label.setStyle("bold-italic");
+			label.setBorder(1, "coral");
+			label.setPosition(10, 50);
+			label.uppercase(true);
+			
+			//------------------ItemList
+			var list = new TotoyeVN.ItemList(true);
+			list.setColor(255,255,255);
+			list.setFontSize(2);
+			list.setStyle("bold-italic");
+			
+			list.addItem("America");
+			list.addItem("Africa");
+			list.addItem("Asia");
+			list.addItem("Europe");
+			list.addItem("Oceania");
+
+			//-----------------HTTPRequest
+			function get()
+			{
+				console.log("Requesting...");
+				var req = new TotoyeVN.HTTPRequest();
+				
+				req.onerror(()=>{
+					console.log("An error has occurred");
+				});
+				req.onprogress((p)=>{
+					console.log(`Loaded ${p}%`);
+				});
+				
+				req.getResult((result)=>{
+					console.log(`data: ${result}`);
+				});
+				
+				//req.request("HTTPREQUEST/data.txt", "GET");
+			}
+
+			//-----------------LineInput
+			var input = new TotoyeVN.LineInput();
+			input.maxLength(5);
+			input.placeholder("Username");
+			input.text("Maxwell");
+			//input.readOnly(true);
+			input.setFont("magenta", 1.3, "bold");
+			//input.setBackground("images/input.png");
+			input.setPosition(50, 40);
+			input.setBackground("darkgrey");
+			input.setBorder(0.4, "coral");
+			
+			//align the buttons to bottom centered
+			start.alignX("left");
+			start.alignY("bottom");
+			
+			continu.setPosition(50 - (continu.getWidth()/2), null);
+			continu.alignY("bottom");
+			
+			exit.alignX("right");
+			exit.alignY("bottom");
+			
+			//Set event listener for each button
+			start.eventListener("click", function(){
+				screen.changeView("game");
+				reader.read();
+			});
+			
+			continu.eventListener("click", function(){
+				//screen.changeView("game");
+				console.log("continue");
+			});
+			
+			exit.eventListener("click", function(){
+				screen.closeWindow();
+			});
+			
+			//Setup the screen
+			screen.createLayer("main");
+			
+			screen.addLayerView("main", "images/scene6.png");
+			screen.addToLayer("main", start);
+			screen.addToLayer("main", continu);
+			screen.addToLayer("main", exit);
+			//screen.addToLayer("main", pane);
+			//screen.addToLayer("main", img);
+			screen.addToLayer("main", pr);
+			screen.addToLayer("main", label);
+			screen.addToLayer("main", list);
+			screen.addToLayer("main", input);
+			
+			screen.createLayer("game");
+			
+			screen.open();
+			screen.setPageIcon("images/Naia_happy.png");
+			
+		</script>
+	</body>
+</html>
