@@ -8,7 +8,6 @@ This repository contains the complete source code of the engine. As it is an ope
 
 # Development
 
-* [Developer Homepage](https://liwen-technology.000webhostapp.com/News)
 * [Twitter](https://twitter.com/liwenstudios)
 * [Documentation](https://liwen-technology.000webhostapp.com/TotoyeVNEngine)
 
