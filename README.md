@@ -2,15 +2,15 @@
 <img align="left" src="Development/images/TVN-logo2.png" width="100px"/>
 <h1>TotoyeVN 2.2</h1>
 
-TotoyeVN 2.2 is a 2D visual novel engine written in JavaScript. The engine was made in a way to offer easy syntax for the development of your games. The first version(1.0.0) was released on Github on June 26 2020 and since, the developer working on it continue to upgrade in order to give you the best engine possible. To learn more see the website ([Li Wen Studios](http://liwenstudios.fun/TotoyeVNEngine.php)).
+TotoyeVN 2.2 is a 2D visual novel engine written in JavaScript. The engine was made to offer easy syntax for the development of your games. The first version(1.0.0) was released on Github on June 26th, 2020. The developer working on it will continue to upgrade it in order to give you the best engine possible.
 
-This repository contains full source code of the engine. As it is a open-source project, anyone is welcome to contribute.
+This repository contains the complete source code of the engine. As it is an open-source project, anyone is welcome to contribute.
 
 # Development
 
-* [Developer Homepage](http://liwenstudios.fun)
+* [Developer Homepage](https://liwen-technology.000webhostapp.com/News)
 * [Twitter](https://twitter.com/liwenstudios)
-* [Documentation](http://liwenstudios.fun/TotoyeVNEngine.php)
+* [Documentation](https://liwen-technology.000webhostapp.com/TotoyeVNEngine)
 
 # Screenshots
 The Background Images used in the Demo are from Noraneko Games.
