@@ -9,7 +9,7 @@ This repository contains the complete source code of the engine. As it is an ope
 # Development
 
 * [Twitter](https://twitter.com/liwenstudios)
-* [Documentation](https://totoyevn.000webhostapp.com/)
+<!--* [Documentation](https://totoyevn.000webhostapp.com/)-->
 
 # Screenshots
 The Background Images used in the Demo are from Noraneko Games.
