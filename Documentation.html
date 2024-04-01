@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+	<head>
+		<title> Li Wen Studios| TotoyeVN </title>
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+		<link rel="shortcut icon" type="image/x-png" href="img/LWS_logo.png"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Reggae+One">
+		<style>
+		    body
+		    {
+		        overflow-x: hidden;
+		    }
+		    hr 
+		    {
+                border: 0;
+                height: 2px;
+                background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+            }
+		</style>
+		
+   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9907062001903131" crossorigin="anonymous"></script>-->
+		
+	</head>
+	<body>
+		<?php include 'menu.php';?>
+		
+		<div id="corps">
+		    <div style="padding-left:5%; padding-right:5%;">
+		<br/>
+			<center>
+			<table>
+			<tr>
+				<td><img src="img/TotoyeVN/TVN-logo2.png" id ="mylogo"/></td><td> <h1> TotoyeVN Engine</h1><p>A visual novel engine or library since June 26th, 2020.</p></td>
+			</tr>
+			</table>
+			</center>
+			<!--//////////////////////////////////////////////////////////////////////////-->
+			
+		<center>
+			<h1>TotoyeVN 2.2 API Documentation</h1>
+		</center>
+		<!--NPM-->
+		<label for="copyPane"><b>npm: </b></label><input type= "text" value = "npm i totoyevn-engine" id = "copyPane" title="Copy Command to Clipboard" readonly/>
+		<br/><br/>
+		
+		<!--icth.io-->
+		<label for="itchio"><b>itch.io: </b></label><a href = "https://li-wen-studios.itch.io/totoye-vn" target="_blank"><button id = "itchio" title="Go to itch.io"><b>Download on itch.io</b></button></a>
+		<br/><br/>
+		
+		<!--Github Sponsor-->
+		<label for= "Sponsor"><b>Sponsor the project: </b></label><a href = "https://github.com/sponsors/LiWen780" target = "_blank"><button id= "Sponsor" title= "Sponsor the project on Github"><b>Github Sponsors</b></button></a>
+		<br/><br/>
+		
+		
+		<h2><u>Quickstart</u></h2>
+		<p style = "text-align:justify;">The TotoyeVN API is a JavaScript library used to make visual novel games with simple syntaxes. With the TotoyeVN 2, the structure of the engine has changed, looking more like a book structure to make it easier to understand. A basic in JavaScript language is necessary to use this library at its full potential.</p>
+		
+		<h2><u>Classes</u></h2>
+		<ul>
+			<li class = "classes" title = "Screen class">Screen</li>
+			<li class = "classes" title = "Panel class">Panel <span class="blink">(NEW)</span></li>
+			<li class = "classes" title = "Character class">Character</li>
+			<li class = "classes" title = "Reader class">Reader</li>
+			<li class = "classes" title = "Book class">Book</li>
+			<li class = "classes" title = "button class">button</li>
+			<li class = "classes" title = "image class">image</li>
+			<li class = "classes" title = "Key class">Key</li>
+			<li class = "classes" title = "Audio class">Audio</li>
+			<li class = "classes" title = "Timer class">Timer <span class="blink">(NEW)</span></li>
+			<li class = "classes" title = "Progressbar class">Progressbar <span class="blink">(NEW)</span></li>
+			<li class = "classes" title = "Label class">Label <span class="blink">(NEW)</span></li>
+			<li class = "classes" title = "ItemList class">ItemList <span class="blink">(NEW)</span></li>
+			<li class = "classes" title = "HTTPRequest class">HTTPRequest <span class="blink">(NEW)</span></li>
+			<li class = "classes" title = "LineInput class">LineInput <span class="blink">(NEW)</span></li>
+		</ul>
+		
+		<br/> <br/>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">Screen</h2><hr/>
+			
+			<p style = "text-align:justify;"> The API uses a layer structure also in order to create easily "main menu layer", "game layer", "credits layer" and other without the needs of creating two or more files for each page. The Screen class manages these layers and displays them as needed.</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var scene = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.Screen();</div>
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) createLayer(name)</b></p>
+			<p style = "text-align:justify;">Use this method to create a new layer inside the screen. Each layer is given a name in order to handle them easily later. The parameter is a String object.</p>
+			<br/>
+			<p style = "color:green;"><b>B) addToLayer(layer_name, object)</b></p>
+			<p style = "text-align:justify;">After creating your layer, you'll want to add something to it. The layer name has to be given as the first parameter(String object). The second parameter, <b>object</b>, can only be from the following classes: <b>button</b>, <b>image</b>, <b>Audio</b>, <b>Reader</b>, <b>Panel</b>, <b>Progressbar</b>, <b>Label</b>, <b>ItemList</b>, and <b>LineInput</b> which are TotoyeVN classes. </p>
+			<br/>
+			<p style = "color:green;"><b>C) addLayerView(layer_name, url)</b></p>
+			<p style = "text-align:justify;">Add a beautiful image as your layer's background. The layer name has to be given as the first parameter(String object) and the URL of the image has to be given as the second(String Object). </p>
+			<br/>
+			<p style = "color:green;"><b>D) open()</b></p>
+			<p style = "text-align:justify;">The Screen doesn't display the layers by default. You need to call this method beforhand and it will start with the first layer created.</p>
+			<br/>
+			<p style = "color:green;"><b>E) changeView(layer_name)</b></p>
+			<p style = "text-align:justify;">The Screen class displays one layer at the time starting with the first layer created. In order to change to another one, use this method by giving the new layer name as parameter.</p>
+			<br/>
+			<p style = "color:green;"><b>F) setPageIcon(icon_url)</b></p>
+			<p style = "text-align:justify;">Same as the gameIcon class in versions 1.0 and 2.0. This method allows you to set a icon to your web page. This method has replaced the gameIcon class.</p>
+			<br/>
+			<p style = "color:green;"><b>G) closeWindow()</b></p>
+			<p style = "text-align:justify;">Close the Web page window.</p>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">Panel</h2><hr/>
+			
+			<p style = "text-align:justify;"> You can create panels inside a Screen's Layer. They can be use to isolate the menu buttons on one side of the main menu page or to show the Setting options on another side of the screen.</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var panel1 = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.Panel(width, height);</div>
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) setWidth(value:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the width of the Panel instance by using this function. The value is ranged from 0.0 to 100.0</p>
+			<br/>
+			<p style = "color:green;"><b>B) setHeight(value:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the height of the Panel instance by using this function. The value is ranged from 0.0 to 100.0</p>
+			<br/>
+			<p style = "color:green;"><b>C) setPosition(x:<span style="color:orange;">float</span>, y:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the position of the Panel instance by using this function. Both x and y values are ranged from 0.0 to 100.0</p>
+			<br/>
+			<p style = "color:green;"><b>D) setBackground(r:<span style="color:orange;">int</span>, g:<span style="color:orange;">int</span>, b:<span style="color:orange;">int</span>, a:<span style="color:orange;">float</span>)</)</b></p>
+			<p style = "text-align:justify;">Change the background color of the Panel instance by using this function. The parameters r,g, and b which are for red, green, and blue values, are ranged from 0.0 to 255 while the parameter <b>a</b> which is for alpha value, is ranged from 0.0 to 1.0</p>
+			<br/>
+			<p style = "color:green;"><b>E) addChild(object:<span style="color:orange;">variant</span>)</b></p>
+			<p style = "text-align:justify;">Add an object instance to the panel like a button, image or text.</p>
+			<br/>
+			<p style = "color:green;"><b>F) removeChild(object:<span style="color:orange;">variant</span>)</b></p>
+			<p style = "text-align:justify;">Remove an added object instance to the panel like a button, image or text.</p>
+			<br/>
+			<p style = "color:green;"><b>G) setBorder(color:<span style="color:orange;">String</span>, size:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Add a border to the panel.</p>
+			<br/>
+			<p style = "color:green;"><b>G) removeBorder()</b></p>
+			<p style = "text-align:justify;">Remove the border from the panel.</p>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">Character</h2><hr/>
+			
+			<p style = "text-align:justify;"> The Character class is used to create a character for the game by setting a specific color for hir or her text in the name box. The parameters are String objects used to set the name and color for the character and both are not mandatory which means you can create a empty character for your scene.</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var Mike = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.Character(name, color);</div>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">Reader</h2><hr/>
+			
+			<p style = "text-align:justify;"> The API uses a book structure to get more familiar with the visual novel type. A Book instance only cannot do anything, that's why we need to Reader to play the story that is inside the Book. The Reader class takes one parameter which is the Book instance, however the parameter is not mandatory to create the instance since it has a method by which you can set the Book instance to the Reader.</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var Mike = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.Reader(book);</div>
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) setBook(Book_instance)</b></p>
+			<p style = "text-align:justify;">The method is used to set a Book instance to read by the Reader class. Know that without a Book, the Reader does nothing.</p>
+			<br/>
+			<p style = "color:green;"><b>B) startAt(chapter_name)</b></p>
+			<p style = "text-align:justify;">In order for the Reader to start reading, it must know in which chapter the story begins. Use this method to set the chapter at which start the script inside the Book instance. The parameter(the chapter name) is a String object.</p>
+			<br/>
+			<p style = "color:green;"><b>C) read()</b></p>
+			<p style = "text-align:justify;">Each time you want to start the story, use that method. Can be used for "Play" button.</p>
+			<br/>
+			<p style = "color:green;"><b>D) close()</b></p>
+			<p style = "text-align:justify;">This method does the opposite of the <b>read()</b> method. It ends the mechanics that handle the story reading and can well be used in the endChapter's parameter function to end the story.</p>
+			<br/>
+			<p style = "color:green;"><b>E) roundedNameBox(degree)</b></p>
+			<p style = "text-align:justify;">Method that is used to set a border radius to the name box inside the scene. The parameter is a Number object that is between 0 to 10. The default parameter is 0.</p>
+			<br/>
+			<p style = "color:green;"><b>F) roundedDialogBox(degree)</b></p>
+			<p style = "text-align:justify;">Used to set a border radius to the dialog box by giving a number between 0 to 10 as parameter.</p>
+			<br/>
+			<p style = "color:green;"><b>G) setTextColor(r,g,b)</b></p>
+			<p style = "text-align:justify;">Creating a character object only gives you possibility to give a character, a specific color for his or her text name. But you can only custom the text color in the dialog box by using this method. It takes three numbers parameters based on the RGB codes of colors.</p>
+			<br/>
+			<p style = "color:green;"><b>H) setBoxColor(r,g,b)</b></p>
+			<p style = "text-align:justify;">You can change the boxes colors by using this method. It takes three numbers parameters based on the RGB codes.</p>
+			<br/>
+			<p style = "color:green;"><b>I) saveJSON()</b></p>
+			<p style = "text-align:justify;">If you want to save the current level of your game, use this method that will return a JSON String that contains the necesary data for the scene. </p>
+			<br/>
+			<p style = "color:green;"><b>J) loadJSON(json)</b></p>
+			<p style = "text-align:justify;">If you want to load a game state like a scene that you were in and has saved by getting the JSON String using the <b>saveJSON()</b> method, you can set the same String as a parameter to this method.</p>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">Book</h2><hr/>
+			
+			<p style = "text-align:justify;"> The Book class is used to create a complete script for your game. </p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var book = <span style="color:red;">new</span> <span style="color:#90ee90;">TotoyeVN</span>.Book();</div>
+			
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:#90ee90;"><b>A) addDialog(character, text)</b></p>
+			<p style = "text-align:justify;">This method is called each time a new dialog(text) with character is added to the script of the game. It takes two(2) parameters: A  <b>character</b> and the <b>text</b> read by the character. The text is a String object(text between quotes like "my name is Mike.") and the character object can be both a <b>Character instance</b> or a String(The name of the Character). This method is called at first when declaring a page in the Book instance which means that showing a character, play audio or showing background for the current page come after adding the text of the character(using addDialog).</p>
+			<br/>
+			<p style = "color:#90ee90;"><b>B) addChoice(arrayOfChoices)</b></p>
+			<p style = "text-align:justify;">Method used to add choices to the script. It takes one argument which is an array with the form of <span style="color:#90ee90">[{menu: "I'm the first choice", jump: "chapter_name"},{menu: "I'm the second choice", jump: "chapter_name2},...]</span>. As you can see the array contains objects. Each object or associative array inside the main one is a choice with <b>menu</b> being the text and <b>jump</b> being the name of the chapter to go after the player takes a choice. Four choices is the maximum that can be used for your script at a time.</p>
+			<br/>
+			<p style = "color:#90ee90;"><b>C) background(image, effect)</b></p>
+			<p style = "text-align:justify;">This method is used to change the background of the scene. By default, the background is a black scene and can only be change by using this method. Only uses the method if you want to change the current background. It takes two parameters: <b>image</b> and <b>effect</b>. <b>Image</b> is a String Object which is the url of the image you want to set as the background(like "images/bluesea.png") and <b>effect</b> is how you want the background to appear when the player changes scene. It can only be "normal" or "dissolve". The second parameter(effect) is not mandatory and as the default value of "normal". You can also set a black background by putting the String "black" as the URL(the image parameter).</p>
+			<br/>
+			<p style = "color:#90ee90;"><b>D) show(character_url, effect)</b></p>
+			<p style = "text-align:justify;">This methow is called to show a character on the screen during a scene. It takes two parameters: the <b>character_url</b>("images/mike_happy.png") and <b>effect</b> which can be "normal" or "dissolve". Both parameters are String object and only the first one(character_url) is mandatory to show a character. The effect parameter has a default value of "normal".</p>
+			<br/>
+			<p style = "color:#90ee90;"><b>E) hide()</b></p>
+			<p style = "text-align:justify;">This method is used when you want to hide the current character. As the <b>show</b> method replace a character image by another, the <b>hide</b> method just hides the character present on the screen.</p>	
+			<br/>
+			<p style = "color:#90ee90;"><b>F) play(audio_url)</b></p>
+			<p style = "text-align:justify;">The method <b>play()</b> is used to play some music in the background of the scene. It takes one parameter(String object) which is the url of the audio file("sounds/techno.mp3").</p>
+			<br/>
+			<p style = "color:#90ee90;"><b>G) pause()</b></p>
+			<p style = "text-align:justify;">If you want to pause the current audio playing in the background, you can use this function.</p>
+			<br/>
+			<p style = "color:#90ee90;"><b>G) resume()</b></p>
+			<p style = "text-align:justify;">If you want to continue to play the current audio after you have paused it before, you can use this function.</p>
+			<br/>
+			<p style = "color:#90ee90;"><b>H) stop()</b></p>
+			<p style = "text-align:justify;">Used to stop the current audio playing in the background without replacing it.</p>
+			<br/>
+			<p style = "color:#90ee90;"><b>I) volume(magnitude)</b></p>
+			<p style = "text-align:justify;">To set or to change the volume of the current audio playing in the scene, set a magnitude bu using this method. The parameter is a Number object between 0 to 100.</p>
+			<br/>
+			<p style = "color:#90ee90;"><b>J) startChapter(name)</b></p>
+			<p style = "text-align:justify;">Before writting a story in your book instance. You must set the chapter in which the scenes are happening. To start a chapter uses this method before adding any dialogs or sounds to it. The method takes one parameter(String object) which is a the name of the chapter. The names are used so that you can create a lot of chapters and jump to them using choices(with addChoice method).</p>
+			<br/>
+			<p style = "color:#90ee90;"><b>K) endChapter(event)</b></p>
+			<p style = "text-align:justify;">After starting a chapter and add elements to it, you must tell the Book where it ends before creating another one. End your chapter with this method. The parameter(a function) is not mandatory, it's a function that you might want to run at the end of a chapter. Called a event function, it is usually used at the last chapter of the Book if you want the player to go to the credits scene or the main menu.</p>
+			<br/>
+			<p style = "color:#90ee90;"><b>L) setLetterByLetterDisplay(bool, elapse)</b></p>
+			<p style = "text-align:justify;">This function is available since the version 2.1 of the API. You can use it if you don't want the word to appear all together in the dialog box of the scene. It takes two parameters: <b>bool</b> which is a boolean value(true or false) to activate the feature and <b>elapse</b> that is the size of second by which you want each letter to appear on the screen. the elapse parameter is a number greater than 0 and less or equal to one(1) second.</p>
+			<br/>
+			<p style = "color:#90ee90;"><b>M) addBlackScreen(text)</b></p>
+			<p style = "text-align:justify;">This method works just like <b>addChoice</b> or <b>addDialog</b>. Instead of adding a next scene in the script, it adds a black transition screen. The argument <b>text</b> is a String object which is a text that you might want to appear at the center of the black screen like "Chapter One" or "At Vanessa's house".</p>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">button</h2><hr/>
+			
+			<p style = "text-align:justify;"> The button Class is used to create a simple button in your Screen layers. The parameter is not mandatory as the text can be given through a method of the class.</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var mybutton = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.button(title);</div>
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) setTitle(text)</b></p>
+			<p style = "text-align:justify;">Set which text should appear on your button. The parameter can be String or Number object.</p>
+			<br/>
+			<p style = "color:green;"><b>B) setBackground(style:<span style="color:orange">String</span>)</b></p>
+			<p style = "text-align:justify;">Customize the background of the button by changing its color or by replacing it with an image instead. The <b>style</b> parameter is a String object that can be a color or the link to a image file.</p>
+			<br/>
+			<p style = "color:green;"><b>C) setFont(color, size, style)</b></p>
+			<p style = "text-align:justify;">You can customize the button more by changing the font. A <b>color</b>, String object that be a color name, a hexadecimal code or RGB codes; the font <b>size</b> of the text with is a number between 0 and 100; and finally the font <b>style</b> which can be "bold", "italic" or "normal".</p>
+			<br/>
+			<p style = "color:green;"><b>D) setFontColor(color)</b></p>
+			<p style = "text-align:justify;">Change the font color of the button.</p>
+			<br/>
+			<p style = "color:green;"><b>E) setFontSize(size)</b></p>
+			<p style = "text-align:justify;">Change the font size of the button. The <b>size</b> is between 0.0 and 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>F) setFontStyle(style)</b></p>
+			<p style = "text-align:justify;">Change the font style of the button by setting it "normal", "italic" or "bold".</p>
+			<br/>
+			<p style = "color:green;"><b>G) setBorder(width, color, type)</b></p>
+			<p style = "text-align:justify;">This method allows its user to change the border features of the button. The <b>width</b> parameter is a number object that tells how many pixels wide is the border. The <b>color</b> parameter is a String object that sets the color of the border. And finally, the <b>type</b> of the border(a String object) that can be "dotted", "dashed", "solid", "double", "groove", "ridge", or "none".</p>
+			<br/>
+			<p style = "color:green;"><b>H) setBorderWidth(width)</b></p>
+			<p style = "text-align:justify;">Change the width of the current border of the button. The width is a number object that represents the number of pixels used for the border's width.</p>
+			<br/>
+			<p style = "color:green;"><b>I) setBorderColor(color)</b></p>
+			<p style = "text-align:justify;">Change the color of the current border of the button.</p>
+			<br/>
+			<p style = "color:green;"><b>J) setBorderStyle(type)</b></p>
+			<p style = "text-align:justify;">Change the type of the current border of the button. It can be "dotted", "dashed", "solid", "double", "groove", "ridge", or "none".</p>
+			<br/>
+			<p style = "color:green;"><b>K) roundedBorder(radius)</b></p>
+			<p style = "text-align:justify;">Set the border radius of the button to make the corners appears more round. The <b>radius</b> parameter is a number object that has value between 0 and 100.</p>
+			<br/>
+			<p style = "color:green;"><b>L) setWidth(size)</b></p>
+			<p style = "text-align:justify;">Change the current width of the button by giving it a new value. The size is a number between 0.0 and 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>M) setHeight(size)</b></p>
+			<p style = "text-align:justify;">Change the current height of the button by giving it a new value. The size is a number between 0.0 and 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>N) alignX(x)</b></p>
+			<p style = "text-align:justify;"> Set a x-alignment to the button. The <b>x</b> parameter is a String object which can only be three values: "left", "center", or "right".</p>
+			<br/>
+			<p style = "color:green;"><b>O) alignY(y)</b></p>
+			<p style = "text-align:justify;">Set a y-alignment to the button. The <b>y</b> parameter is a String object which can only be three values: "top", "center", or "bottom".</p>
+			<br/>
+			<p style = "color:green;"><b>P) setPosition(x:<span style="color:orange">float</span>, y:<span style="color:orange">float</span>)</b></p>
+			<p style = "text-align:justify;">You can change the x and y position of the button in the screen by giving it new ones as parameters. The <b>x</b> and <b>y</b> parameters are ranged from 0.0 to 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>Q) getWidth()</b></p>
+			<p style = "text-align:justify;">Return the current width of the button.</p>
+			<br/>
+			<p style = "color:green;"><b>R) getHeight()</b></p>
+			<p style = "text-align:justify;">Return the current height of the button.</p>
+			<br/>
+			<p style = "color:green;"><b>S) getPosition()</b></p>
+			<p style = "text-align:justify;">Return the current position of the button as an object like {x: 1.0, y: 1.0}.</p>
+			<br/>
+			<p style = "color:green;"><b>T) disabled(value:<span style="color:orange">boolean</span>)</b></p>
+			<p style = "text-align:justify;">Defines the state of the button. It's false bu default.</p>
+			<br/>
+			<p style = "color:green;"><b>U) eventListener(event, method)</b></p>
+			<p style = "text-align:justify;">Set an event listener to the button(which tells it what to do for each action). The <b>event</b> parameter is a String object that tells the name of the event("click", "mouseover", "mousedown", "mouseout", or "mouseup") to take into account. The <b>method</b>, as its name tells, is the function to run when the event occurs.</p>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">image</h2><hr/>
+			
+			<p style = "text-align:justify;"> The image Class is used to create a image object in your Screen layers. The parameter is not mandatory as the source file can be given through a method of the class.</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var myimage = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.image(src);</div>
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) src(file_url:<span style="color:orange">String</span>)</b></p>
+			<p style = "text-align:justify;"> To create a image object you need to give it a image file to use. This method is used to set the link of the image to the instance like "images/characters/Mike.png"</p>
+			<br/>
+			<p style = "color:green;"><b>B) setWidth(size:<span style="color:orange">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the current width of the image by giving it a new one. The size is a number between 0.0 to 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>C) setHeight(size:<span style="color:orange">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the current height of the image by giving it a new one. The size is a number between 0.0 to 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>D) alignX(x:<span style="color:orange">String</span>)</b></p>
+			<p style = "text-align:justify;">Align the image on the x-axis of the Screen. The <b>x</b> parameter is a String object which can only be three values: "left", "center", or "right".</p>
+			<br/>
+			<p style = "color:green;"><b>E) alignY(y:<span style="color:orange">String</span>)</b></p>
+			<p style = "text-align:justify;">Align the image on the y-axis of the Screen. The <b>y</b> parameter is a String object which can only be three values: "top", "center", or "bottom".</p>
+			<br/>
+			<p style = "color:green;"><b>F) setPosition(x:<span style="color:orange">float</span>, y:<span style="color:orange">float</span>)</b></p>
+			<p style = "text-align:justify;">You can change the x and y position of the image in the screen by giving it new ones as parameters. The <b>x</b> and <b>y</b> parameters are ranged from 0.0 to 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>G) getPosition()</b></p>
+			<p style = "text-align:justify;">Return the current position of the button as an object like {x: 1.0, y: 1.0}.</p>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">Key</h2><hr/>
+			
+			<p style = "text-align:justify;"> The engine gives you the option to create events using Key input.</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var mykey = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.Key();</div>
+			
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) eventListener(key, type, method)</b></p>
+			<p style = "text-align:justify;">Set an event listener by giving three parameters: the key, the type of event, and the method, a function to run when the event occurs. The type is a boolean value where true is when the key is pressed and false when the key is released(After being pressed). The key parameter is a value that comes from the Key class.</p>
+			<br/>
+			<p style = "color:green;"><b>B) mykey.A, mykey.B, ...., mykey.Z</b></p>
+			<p style = "text-align:justify;">Using the Key instance with the letter needed, we will get the key value of letter from "A" to "Z"(on keyboard).</p>
+			<br/>
+			<p style = "color:green;"><b>C) mykey.CTRL</b></p>
+			<p style = "text-align:justify;">Return the key value of the Control key.</p>
+			<br/>
+			<p style = "color:green;"><b>D) mykey.SHIFT</b></p>
+			<p style = "text-align:justify;">Return the key value of the Shift key.</p>
+			<br/>
+			<p style = "color:green;"><b>E) mykey.LEFT</b></p>
+			<p style = "text-align:justify;">Return the key value of the Left Arrow key.</p>
+			<br/>
+			<p style = "color:green;"><b>F) mykey.RIGHT</b></p>
+			<p style = "text-align:justify;">Return the key value of the Right Arrow key.</p>
+			<br/>
+			<p style = "color:green;"><b>G) mykey.UP</b></p>
+			<p style = "text-align:justify;">Return the key value of the Up Arrow key.</p>
+			<br/>
+			<p style = "color:green;"><b>H) mykey.DOWN</b></p>
+			<p style = "text-align:justify;">Return the key value of the Down Arrow key.</p>
+			<br/>
+			<p style = "color:green;"><b>I) mykey.SPACE</b></p>
+			<p style = "text-align:justify;">Return the key value of the Space key.</p>
+			<br/>
+			<p style = "color:green;"><b>J) mykey.ENTER</b></p>
+			<p style = "text-align:justify;">Return the key value of the Enter key.</p>
+			<br/>
+			<p style = "color:green;"><b><u> Example: </u></b></p>
+			<p style = "text-align:justify;"><b> <span style = "color:red;">var</span> mykey = <span style = "color:red;">new</span> <span style = "color:green;">TotoyeVN</span>.Key();<br/>mykey.<span style = "color:red;">eventListener</span>(mykey.A, true, function(){<br/>console.log("Display this text when the key A is pressed.");<br/>});</b></p>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">Audio</h2><hr/>
+			
+			<p style = "text-align:justify;"> The Audio class is used to create sound object for your game. It is used to set soundtrack for your Screen layers. The parameter is the url of the audio file which is not mandatory during the instance creation.</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var audio = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.Audio(url);</div>
+			
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) src(url:<span style="color:orange;">String</span>)</b></p>
+			<p style = "text-align:justify;">Set the url(String object) of the audio file to the Audio instance. It will need it to play the sound.</p>
+			<br/>
+			<p style = "color:green;"><b>B) play()</b></p>
+			<p style = "text-align:justify;">Set the Audio object to the <b>play</b> state.</p>
+			<br/>
+			<p style = "color:green;"><b>C) pause()</b></p>
+			<p style = "text-align:justify;">Set the Audio object to the <b>pause</b> state.</p>
+			<br/>
+			<p style = "color:green;"><b>D) stop()</b></p>
+			<p style = "text-align:justify;">Set the Audio object to the <b>stop</b> state.</p>
+			<br/>
+			<p style = "color:green;"><b>E) loop()</b></p>
+			<p style = "text-align:justify;">Set the Audio object to play as a loop in the background.</p>
+			<br/>
+			<p style = "color:green;"><b>F) setTime(second:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Set the time position of the music(our audio) to a certain amount of second. The parameter is a Number object.</p>
+			<br/>
+			<p style = "color:green;"><b>G) volume(magnitude)</b></p>
+			<p style = "text-align:justify;">Set the volume of the Audio object from 0 to 100 percent.</p>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">Timer</h2><hr/>
+			
+			<p style = "text-align:justify;"> Create a timer inside your game using this class. While creating the instance, three parameters are given: <b>sec</b> which is the number of seconds for the timer to reach its end; <b>once</b>, a true or false statement that specifies if the Timer has to run once or infinitely; and finally, <b>callback</b> which is the function that will run each time the Timer ends.</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var myTimer = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.Timer(sec:<span style="color:orange;">float</span>, once:<span style="color:orange;">boolean</span> , callback: <span style="color:orange;">function</span>);</div>
+			
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) stop()</b></p>
+			<p style = "text-align:justify;">Use this method to stop or clear the timer.</p>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">Progressbar</h2><hr/>
+			
+			<p style = "text-align:justify;"> You can add a progress bar to your game as a loading screen or anything else. Both parameters aren't mandatory for the progress bar instance. The default max value is 100.0 and the default value is 0.0</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var bar = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.Progressbar(max:<span style="color:orange;">float</span>, value:<span style="color:orange;">float</span>);</div>
+			
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) setValue(v:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Set a new value to the progress bar.</p>
+			<br/>
+			<p style = "color:green;"><b>B) setMax(v:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Set a new maximum to the progress bar.</p>
+			<br/>
+			<p style = "color:green;"><b>C) setBackgroundColor(r,g,b)</b></p>
+			<p style = "text-align:justify;">Change the background color of the progress bar by giving a red value(parameter <b> r</b>), a green value(parameter <b>g</b>), and a blue value(parameter <b>b</b>). Those three parameters are ranged from 0 to 255.</p>
+			<br/>
+			<p style = "color:green;"><b>D) setForegroundColor(r,g,b)</b></p>
+			<p style = "text-align:justify;">Change the foreground color of the progress bar by giving a red value(parameter <b> r</b>), a green value(parameter <b>g</b>), and a blue value(parameter <b>b</b>). Those three parameters are ranged from 0 to 255.</p>
+			<br/>
+			<p style = "color:green;"><b>E) setLabel(text:<span style="color:orange;">String</span>)</b></p>
+			<p style = "text-align:justify;">Set a text as label to the progress bar.</p>
+			<br/>
+			<p style = "color:green;"><b>F) setFontColor(r,g,b)</b></p>
+			<p style = "text-align:justify;">Change the text color of the progress bar's label by giving a red value(parameter <b> r</b>), a green value(parameter <b>g</b>), and a blue value(parameter <b>b</b>). Those three parameters are ranged from 0 to 255.</p>
+			<br/>
+			<p style = "color:green;"><b>G) setSize(width:<span style="color:orange;">float</span>, height:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the size of the progress bar by setting a width value and a height value. Both parameters are ranged from 0.0 to 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>H) setPosition(x:<span style="color:orange;">float</span>, y:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the position of the progress bar by setting its x and y values. Both parameters are ranged from 0.0 to 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>I) getPosition()</b></p>
+			<p style = "text-align:justify;">Return the current position of the progress bar as an object like {x:1.0, y:1.0}.</p>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">Label</h2><hr/>
+			
+			<p style = "text-align:justify;"> You can add a Label element to your game's screen. Maybe like the title of your game.</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var mygametitle = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.Label(text:<span style="color:orange;">String</span>);</div>
+			
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) setText(text:<span style="color:orange;">String</span>)</b></p>
+			<p style = "text-align:justify;">Change the Label's text.</p>
+			<br/>
+			<p style = "color:green;"><b>B) uppercase(value:<span style="color:orange;">boolean</span>)</b></p>
+			<p style = "text-align:justify;">Set a true/false value to define if the label's text is uppercase or not.</p>
+			<br/>
+			<p style = "color:green;"><b>C) textAlign(type:<span style="color:orange;">String</span>)</b></p>
+			<p style = "text-align:justify;">Change the Label's type. The type parameter can be <b>left</b>, <b>right</b>, <b>center</b>, <b>justify</b>.</p>
+			<br/>
+			<p style = "color:green;"><b>D) setColor(r,g,b)</b></p>
+			<p style = "text-align:justify;">Change the text color of the label by setting the <b>r</b>ed, <b>g</b>reen and <b>b</b>lue values.</p>
+			<br/>
+			<p style = "color:green;"><b>E) setFontSize(size:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the size of the text. The <b>size</b> parameter is ranged from 0.0 to 25.0.</p>
+			<br/>
+			<p style = "color:green;"><b>F) setStyle(style:<span style="color:orange;">String</span>)</b></p>
+			<p style = "text-align:justify;">Change the text's style. The <b>style</b> parameter can be <b>normal</b>, <b>italic</b>, <b>bold</b>, <b>bold-italic</b>.</p>
+			<br/>
+			<p style = "color:green;"><b>G) setBorder(size, color:<span style="color:orange;">String</span>, side:<span style="color:orange;">String</span>)</b></p>
+			<p style = "text-align:justify;">Add a border to the label. The <b>side</b> parameter can be <b>left</b>, <b>right</b>, <b>top</b>, <b>bottom</b> and it's not mandatory. You can skip the <b>side</b> parameter to add color and size to the four sides at once.</p>
+			<br/>
+			<p style = "color:green;"><b>H) setSize(width:<span style="color:orange;">float</span>, height:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the size of the Label by setting a width value and a height value. Both parameters are ranged from 0.0 to 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>I) getSize()</b></p>
+			<p style = "text-align:justify;">Return the current position of the Label as an object like {x:1.0, y:1.0}.</p>
+			<br/>
+			<p style = "color:green;"><b>J) setPosition(x:<span style="color:orange;">float</span>, y:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the position of the Label by setting its x and y values. Both parameters are ranged from 0.0 to 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>K) getPosition()</b></p>
+			<p style = "text-align:justify;">Return the current position of the Label as an object like {x:1.0, y:1.0}.</p>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">ItemList</h2><hr/>
+			
+			<p style = "text-align:justify;"> You can add a list to your game's screen using this class. You can set the <b>ordered</b> parameter as true or false to define the type of list you want to create. The list is unordered by default.</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var characterList = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.ItemList(ordered:<span style="color:orange;">boolean</span>);</div>
+			
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) addItem(text:<span style="color:orange;">String</span>)</b></p>
+			<p style = "text-align:justify;">Add an item to the list.</p>
+			<br/>
+			<p style = "color:green;"><b>B) setItem(text:<span style="color:orange;">String</span>, position:<span style="color:orange;">int</span>)</b></p>
+			<p style = "text-align:justify;">Add an item at a specific position inside the list.</p>
+			<br/>
+			<p style = "color:green;"><b>C) remove(position:<span style="color:orange;">int</span>)</b></p>
+			<p style = "text-align:justify;">Remove an item at a specific position inside the list.</p>
+			<br/>
+			<p style = "color:green;"><b>D) setColor(r,g,b)</b></p>
+			<p style = "text-align:justify;">Change the text color of the list.</p>
+			<br/>
+			<p style = "color:green;"><b>E) setFontSize(size:<span style="color:orange">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the text size. The <b>size</b> parameter is ranged from 0.0 to 25.0.</p>
+			<br/>
+			<p style = "color:green;"><b>F) setStyle(style:<span style="color:orange">String</span>)</b></p>
+			<p style = "text-align:justify;">Change the text style. The <b>style</b> parameter can be <b>normal</b>, <b>italic</b>, <b>bold</b>, <b>bold-italic</b>.</p>
+			<br/>
+			<p style = "color:green;"><b>G) clear()</b></p>
+			<p style = "text-align:justify;">Clear the list.</p>
+			<br/>
+			<p style = "color:green;"><b>H) setPosition(x:<span style="color:orange">float</span>, y:<span style="color:orange">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the position of the ItemList in the screen. Both parameters x and y are ranged from 0.0 to 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>I) getPosition()</b></p>
+			<p style = "text-align:justify;">Return the current position of the ItemList.</p>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">HTTPRequest</h2><hr/>
+			
+			<p style = "text-align:justify;"> You can send or receive data from your server using this class</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var http = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.HTTPRequest();</div>
+			
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) request(url:<span style="color:orange;">String</span>, action:<span style="color:orange;">String</span>, value)</b></p>
+			<p style = "text-align:justify;">Send a request to the server. The <b>url</b> parameter is the address you send the request to, like "data.json" or "http://mywebsite.com/data.json". The <b>action</b> parameter can be whether <b>GET</b> to get data or <b>POST</b> to send data. And finally, the <b>value</b> parameter is the data you want to send which means it's not mandatory when receiving data.</p>
+			<br/>
+			<p style = "color:green;"><b>B) cancel()</b></p>
+			<p style = "text-align:justify;"> End or cancel the current request.</p>
+			<br/>
+			<p style = "color:green;"><b>C) onerror(method)</b></p>
+			<p style = "text-align:justify;"> The <b>method</b> parameter is a function to run when an error occurred after starting a request.</p>
+			<br/>
+			<p style = "color:green;"><b>D) onprogress(method)</b></p>
+			<p style = "text-align:justify;"> The <b>method</b> parameter is a function to run when the request is progressing. The function to run, must also has a parameter which is the percentage of the progress.<br/> Example:<br/> http.onprogress(function(per){console.log("Loading: "+per+"%");}); </p>
+			<br/>
+			<p style = "color:green;"><b>E) getResult(method)</b></p>
+			<p style = "text-align:justify;"> The <b>method</b> parameter is a function to run when the GET request is done. The function to run, must also has a parameter which is the JSON data received.</p>
+			<br/>
+		</div>
+		
+		<div class="Layers" style = "display:none;">
+			<h2 style="color: #90ee90;">LineInput</h2><hr/>
+			
+			<p style = "text-align:justify;"> Use this function to create a text input element.</p>
+			<div style="background-color: #332832; padding: 5px; border: grey solid;"><h3>Instance: </h3>var username = <span style="color:red;">new</span> <span style="color:green;">TotoyeVN</span>.LineInput();</div>
+			
+			<center><h3><u>Methods</u></h3></center>
+			
+			<p style = "color:green;"><b>A) maxLength(value:<span style="color:orange;">int</span>)</b></p>
+			<p style = "text-align:justify;">Set a maximum number of character for the text input element.</p>
+			<br/>
+			<p style = "color:green;"><b>B) placeholder(text:<span style="color:orange;">String</span>)</b></p>
+			<p style = "text-align:justify;">Set a text as placeholder.</p>
+			<br/>
+			<p style = "color:green;"><b>C) text(value:<span style="color:orange;">String</span>)</b></p>
+			<p style = "text-align:justify;">Set a text value inside for the input element.</p>
+			<br/>
+			<p style = "color:green;"><b>D) readOnly(value:<span style="color:orange;">boolean</span>)</b></p>
+			<p style = "text-align:justify;">Set a true or false value to specify if the user can write inside the LineInput or not.</p>
+			<br/>
+			<p style = "color:green;"><b>E) setFont(color:<span style="color:orange;">String</span>, size:<span style="color:orange;">int</span>, style:<span style="color:orange;">String</span>)</b></p>
+			<p style = "text-align:justify;">Change the color, size and style of the text inside the LineInput element. The <b>size</b> parameter is ranged from 0.0 to 25.0. The <b> style</b> can be <b>normal</b>, <b>italic</b>, <b>bold</b>, <b>bold-italic</b>.</p>
+			<br/>
+			<p style = "color:green;"><b>F) setBackground(value:<span style="color:orange;">String</span>)</b></p>
+			<p style = "text-align:justify;">Change the current background of the LineInput. The parameter can be a color or an image url.</p>
+			<br/>
+			<p style = "color:green;"><b>G) setBorder(size:<span style="color:orange;">int</span>, color:<span style="color:orange;">String</span>, side:<span style="color:orange;">String</span>)</b></p>
+			<p style = "text-align:justify;">Set a border to the LineInput. The <b>size</b> parameter is ranged from 0.0 to 10.0. The <b>side</b> parameter can be <b>left</b>, <b>right</b>, <b>top</b>, <b>bottom</b>.</p>
+			<br/>
+			<p style = "color:green;"><b>H) setPosition(x:<span style="color:orange;">float</span>, y:<span style="color:orange;">float</span>)</b></p>
+			<p style = "text-align:justify;">Change the LineInput position using this function. Both parameters <b>x</b> and <b>y</b> are ranged from 0.0 to 100.0.</p>
+			<br/>
+			<p style = "color:green;"><b>I) getPosition()</b></p>
+			<p style = "text-align:justify;">Return the current position of the LineInput as an object like {x:1.0, y:1.0}.</p>
+			<br/>
+		</div>
+		
+		<br/><br/><hr/>
+		
+		<center>
+		<!--Support-->
+		<label for="itchio"><b>Support the project: </b></label>
+		<br/><br/>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type="hidden" name="cmd" value="_donations" />
+			<input type="hidden" name="business" value="AA9GMMT4GRQYE" />
+			<input type="hidden" name="item_name" value="Support TotoyeVN Engine" />
+			<input type="hidden" name="currency_code" value="USD" />
+			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+		</form>
+		</center>
+		
+		<br/><br/>
+		</div>
+		</div>
+		
+		<?php include 'footer.php';?>
+		
+		<script type="text/javascript">
+			
+			var body = document.querySelector("#corps");
+			var log = document.getElementById("mylogo");
+			var text = document.getElementById("copyPane");
+			var itch = document.getElementById("itchio");
+			var sponsor = document.getElementById("Sponsor");
+			var blink = document.getElementsByClassName('blink');
+			var classes = document.getElementsByClassName("classes");
+			var layers = document.getElementsByClassName("Layers");
+			
+			log.style.height = ((window.innerHeight/2.5)*0.7)+"px";
+			
+			body.style.minHeight = (window.innerHeight-(window.innerHeight*0.08))+"px";
+			body.style.width = (window.innerWidth)+"px";
+			
+			body.style.fontFamily = "'Reggae One', sans-serif";
+			body.style.backgroundRepeat = "no-repeat";
+			body.style.backgroundSize = "100% 100%";
+			body.style.color = "#F5FAFA"; //"#464545";
+			body.style.backgroundColor = "#000000";
+			body.style.zIndex = 1;
+			body.style.paddingBottom = "5%";
+			body.style.paddingTop = "3%";
+			body.style.overflow = "hidden";
+			
+			//---------------------------------------------------------------------------------
+			
+			text.style.height = (window.innerHeight/20)+"px";
+			text.style.fontSize = ((window.innerHeight/20)*0.4)+"px";
+			text.style.textAlign = "center";
+			text.style.cursor = "pointer";
+			text.style.border = "solid grey 1px";
+			text.style.borderRadius = "8px";
+			
+			itch.style.height = (window.innerHeight/20)+"px";
+			itch.style.fontSize = ((window.innerHeight/20)*0.4)+"px";
+			itch.style.textAlign = "center";
+			itch.style.cursor = "pointer";
+			itch.style.color = "white";
+			itch.style.backgroundColor = "red";
+			itch.style.border = "solid grey 1px";
+			itch.style.borderRadius = "8px";
+			
+			sponsor.style.height = (window.innerHeight/20)+"px";
+		    sponsor.style.fontSize = ((window.innerHeight/20)*0.4)+"px";
+			sponsor.style.textAlign = "center";
+			sponsor.style.cursor = "pointer";
+			sponsor.style.color = "white";
+			sponsor.style.backgroundColor = "black";
+			sponsor.style.border = "solid grey 1px";
+			sponsor.style.borderRadius = "8px";
+			
+			if(window.innerHeight <= window.innerWidth)
+			{
+				text.style.width = (window.innerWidth/4)+"px";
+				itch.style.width = (window.innerWidth/4)+"px";
+				sponsor.style.width = (window.innerWidth/4)+"px";
+			}
+			else
+			{
+				text.style.width = (window.innerWidth/2)+"px";
+				itch.style.width = (window.innerWidth/2)+"px";
+				sponsor.style.width = (window.innerWidth/2)+"px";
+			}
+			
+			text.onclick = function()
+			{
+				this.select();
+				this.setSelectionRange(0, 99999)
+				document.execCommand("copy");
+				alert("Copied the text: " + this.value);
+			};
+			
+			text.onmouseover = function()
+			{
+				this.style.backgroundColor = "rgba(0,255,0,0.2)";
+			};
+			
+			text.onmouseout = function()
+			{
+				this.style.backgroundColor = "rgba(255,255,255,1)";
+			};
+			
+			itch.onmouseover = function()
+			{
+				this.style.backgroundColor = "rgb(255,255,255)";
+				this.style.color = "rgb(255,0,0)";
+			};
+			
+			itch.onmouseout = function()
+			{
+				this.style.backgroundColor = "rgb(255,0,0)";
+				this.style.color = "rgb(255,255,255)";
+			};
+			
+			sponsor.onmouseover = function()
+			{
+				this.style.backgroundColor = "rgb(255,255,255)";
+				this.style.color = "rgb(0,0,0)";
+			};
+			
+			sponsor.onmouseout = function()
+			{
+				this.style.backgroundColor = "rgb(0,0,0)";
+				this.style.color = "rgb(255,255,255)";
+			};
+			
+			for (let k = 0; k < blink.length; k++) 
+			{
+				blink[k].style.color = "yellow";
+				setInterval(function(){
+					blink[k].style.opacity = (blink[k].style.opacity == 0 ? 1 : 0);
+				}, 1000);
+			}
+			
+			//Classes choice
+			for(let c = 0; c < classes.length; c++)
+			{
+				classes[c].style.cursor = "pointer";
+				classes[c].onclick = function()
+				{
+					switch(this.title)
+					{
+						case "Screen class":
+							changeLayer(0);
+							break;
+						case "Panel class":
+							changeLayer(1);
+							break;
+						case "Character class":
+							changeLayer(2);
+							break;
+						case "Reader class":
+							changeLayer(3);
+							break;
+						case "Book class":
+							changeLayer(4);
+							break;
+						case "button class":
+							changeLayer(5);
+							break;
+						case "image class":
+							changeLayer(6);
+							break;
+						case "Key class":
+							changeLayer(7);
+							break;
+						case "Audio class":
+							changeLayer(8);
+							break;
+						case "Timer class":
+							changeLayer(9);
+							break;
+						case "Progressbar class":
+							changeLayer(10);
+							break;
+						case "Label class":
+							changeLayer(11);
+							break;
+						case "ItemList class":
+							changeLayer(12);
+							break;
+						case "HTTPRequest class":
+							changeLayer(13);
+							break;
+						case "LineInput class":
+							changeLayer(14);
+							break;
+					}
+				}
+			}
+			
+			//FUNCTIONS
+			
+			function changeLayer(id)
+			{
+				for(let l = 0; l < layers.length; l++)
+				{
+					if(l == id)
+					{
+						layers[l].style.display = "inline-block";
+					}
+					else
+					{
+						layers[l].style.display = "none";
+					}
+				}
+			}
+			
+			//---------------------------------------------------------------------------------
+			
+			window.addEventListener("resize", function()
+			{
+				log.style.height = ((window.innerHeight/2.5)*0.7)+"px";
+				
+				body.style.minHeight = (window.innerHeight-(window.innerHeight*0.08))+"px";
+				body.style.width = (window.innerWidth)+"px";
+				body.style.paddingBottom = "5%";
+				body.style.paddingTop = "3%";
+				body.style.marginTop = (window.innerHeight*0.08)+"px";
+				
+				text.style.height = (window.innerHeight/20)+"px";
+		    	text.style.fontSize = ((window.innerHeight/20)*0.4)+"px";
+				itch.style.height = (window.innerHeight/20)+"px";
+		    	itch.style.fontSize = ((window.innerHeight/20)*0.4)+"px";
+		    	sponsor.style.height = (window.innerHeight/20)+"px";
+		    	sponsor.style.fontSize = ((window.innerHeight/20)*0.4)+"px";
+		    	
+		    	if(window.innerHeight <= window.innerWidth)
+    			{
+    				text.style.width = (window.innerWidth/4)+"px";
+    				itch.style.width = (window.innerWidth/4)+"px";
+    				sponsor.style.width = (window.innerWidth/4)+"px";
+    			}
+    			else
+    			{
+    				text.style.width = (window.innerWidth/2)+"px";
+    				itch.style.width = (window.innerWidth/2)+"px";
+    				sponsor.style.width = (window.innerWidth/2)+"px";
+    			}
+			});
+		</script>
+                                
+	
+	</body>
+</html>
